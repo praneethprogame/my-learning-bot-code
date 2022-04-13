@@ -1,4 +1,4 @@
-const express = require('express') 
+const express = require('express')
 const app = express()
 const port = 3000
 
@@ -93,8 +93,56 @@ command(client, 'createvoicechannel', (message) => {
     })
 })
 
+command(client, 'ban', (message) => {
+  const { member, mentions } = message
+
+  const tag = `<@${member.id}>`
+
+  if (
+    member.hasPermission('ADMINISTRATOR') ||
+    member.hasPermission('BAN_MEMBERS')
+  ) {
+    const target = mentions.users.first()
+    if (target) {
+      const targetMember = message.guild.members.cache.get(target.id)
+      targetMember.ban()
+      message.channel.send(`${tag} This user has BANNED they cannot rejoin`)
+    } else {
+      message.channel.send(`${tag} Please tell someone for me to ban`)
+    }
+  } else {
+    message.channel.send(
+      `${tag} You Have NO PERMITION PEASENT`
+    )
+  }
+})
+
+command(client, 'kick', (message) => {
+  const { member, mentions } = message
+
+  const tag = `<@${member.id}>`
+
+  if (
+    member.hasPermission('ADMINISTRATOR') ||
+    member.hasPermission('KICK_MEMBERS')
+  ) {
+    const target = mentions.users.first()
+    if (target) {
+      const targetMember = message.guild.members.cache.get(target.id)
+      targetMember.kick()
+      message.channel.send(`${tag} this user is now kicked to they can rejoin`)
+    } else {
+      message.channel.send(`${tag} Please tell someone for me to Kick!`)
+    }
+  } else {
+    message.channel.send(
+      `${tag} You Have NO PERMITION PEASENT`
+    )
+  }
+})
+
 command(client, ['help','hl'], (message)=> {
   message.channel.send('commands: !help brings up this| !hl also brings up this| !ctc {CHANNELNAME} creates a channel| !status {STATUS} changes the bots status| !ping the bot will say "pong!"')
 })
 
-client.login(process.env.TOKEN); 
+client.login(process.env.TOKEN);
