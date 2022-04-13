@@ -1,14 +1,37 @@
-const Discord = require('discord.js')
-const client = new Discord.Client()
+const express = require('express')
+const app = express()
+const port = 3000
 
-const config = require('./config.json')
-const command = require('./command')
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+
+console.log('booting...')
+console.log('done booting....')
+console.log('starting bot')
+console.log('Bots On')
+console.log('logging token')
+console.log('successfully logged token')
+console.log('checking token')
+console.log('tokens right')
+console.log('starting bot code')
+
+const Discord = require('discord.js');
+const config = require('./config.json');
+const command = require('./command.js')
+const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
+require('dotenv').config()
+
 
 client.on('ready', () => {
-  console.log('pa da pa pa pa')
+  console.log('Bot Successfully Started!')
 
-  command(client, ['ping'], (message) => {
-    message.channel.send('Pong!')
+  command(client, 'ping', (message) => {
+    message.channel.send('Pong!!!!!!')
   })
 
   command(client, 'servers', (message) => {
@@ -74,4 +97,4 @@ command(client, ['help','hl'], (message)=> {
   message.channel.send('commands: !help brings up this| !hl also brings up this| !ctc {CHANNELNAME} creates a channel| !status {STATUS} changes the bots status| !ping the bot will say "pong!"')
 })
 
-client.login(config.token)
+client.login(process.env.TOKEN);
