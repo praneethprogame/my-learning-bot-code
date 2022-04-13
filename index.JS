@@ -7,18 +7,8 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Bot Listening on PORT ${port}`)
 })
-
-console.log('booting...')
-console.log('done booting....')
-console.log('starting bot')
-console.log('Bots On')
-console.log('logging token')
-console.log('successfully logged token')
-console.log('checking token')
-console.log('tokens right')
-console.log('starting bot code')
 
 const Discord = require('discord.js');
 const config = require('./config.json');
@@ -28,7 +18,7 @@ require('dotenv').config()
 
 
 client.on('ready', () => {
-  console.log('Bot Successfully Started!')
+  console.log('Bots Successfuly Online')
 
   command(client, 'ping', (message) => {
     message.channel.send('Pong!!!!!!')
@@ -82,6 +72,9 @@ command(client, 'ctc', (message) => {
 command(client, 'createvoicechannel', (message) => {
   const name = message.content.replace('!createvoicechannel ', '')
 
+  console.log('done booting....')
+  console.log('starting bot')
+
   message.guild.channels
     .create(name, {
       type: 'voice',
@@ -126,6 +119,9 @@ command(client, 'kick', (message) => {
     member.hasPermission('ADMINISTRATOR') ||
     member.hasPermission('KICK_MEMBERS')
   ) {
+
+    console.log('Bots On')
+
     const target = mentions.users.first()
     if (target) {
       const targetMember = message.guild.members.cache.get(target.id)
