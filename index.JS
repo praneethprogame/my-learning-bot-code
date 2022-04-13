@@ -97,4 +97,4 @@ command(client, ['help','hl'], (message)=> {
   message.channel.send('commands: !help brings up this| !hl also brings up this| !ctc {CHANNELNAME} creates a channel| !status {STATUS} changes the bots status| !ping the bot will say "pong!"')
 })
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN); 
