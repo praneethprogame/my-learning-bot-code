@@ -18,6 +18,7 @@ require('dotenv').config()
 
 
 client.on('ready', () => {
+  client.user.setActivity('pran code me', {type: 'WATCHING'});
   console.log('Bots Successfuly Online')
 
   command(client, 'ping', (message) => {
@@ -72,8 +73,6 @@ command(client, 'ctc', (message) => {
 command(client, 'createvoicechannel', (message) => {
   const name = message.content.replace('!createvoicechannel ', '')
 
-  console.log('done booting....')
-  console.log('starting bot')
 
   message.guild.channels
     .create(name, {
@@ -120,7 +119,7 @@ command(client, 'kick', (message) => {
     member.hasPermission('KICK_MEMBERS')
   ) {
 
-    console.log('Bots On')
+
 
     const target = mentions.users.first()
     if (target) {
@@ -141,4 +140,8 @@ command(client, ['help','hl'], (message)=> {
   message.channel.send('commands: !help brings up this| !hl also brings up this| !ctc {CHANNELNAME} creates a channel| !status {STATUS} changes the bots status| !ping the bot will say "pong!"')
 })
 
-client.login(process.env.TOKEN);
+command(client, ['credits', 'cd'], (message) => {
+message.channel.send('creator:praneethprogamer , learner:praneethprogamer , helper: Windows 11 ')
+})
+
+client.login(process.env.TOKEN); 
