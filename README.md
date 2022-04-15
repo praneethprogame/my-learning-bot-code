@@ -14,8 +14,3 @@ If there are any errors with the code
 DM me on discord
 
 praneethprogamer#0476
-
-if your too lazy to put in the code then just download it from the
-releases(will also be updated) this will be temporaray
-
-i may take this down in the future
