@@ -14,3 +14,6 @@ If there are any errors with the code
 DM me on discord
 
 praneethprogamer#0476
+_____________________________________________
+
+this repo is still owned my praneethprogame
