@@ -1,15 +1,3 @@
-const express = require('express')
-const app = express()
-const port = 3000
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.listen(port, () => {
-  console.log(`Bot Listening on PORT ${port}`)
-})
-
 const Discord = require('discord.js');
 const config = require('./config.json');
 const command = require('./command.js')
@@ -18,9 +6,8 @@ require('dotenv').config()
 
 
 client.on('ready', () => {
-  client.user.setActivity('pran code me', {type: 'WATCHING'});
   console.log('Bots Successfuly Online')
-
+client.user.setActivity('som minecraft');
   command(client, 'ping', (message) => {
     message.channel.send('Pong!!!!!!')
   })
@@ -34,7 +21,7 @@ client.on('ready', () => {
   })
 
   command(client, ['cc', 'clearchannel'], (message) => {
-    if (message.member.hasPermission('ADMINISTRATOR')) {
+    if (message.member.hasPermission('ADMINISTRATOR', 'MANAGE_MESSAGES')) {
       message.channel.messages.fetch().then((results) => {
         message.channel.bulkDelete(results)
       })
@@ -43,7 +30,7 @@ client.on('ready', () => {
 
   command(client, 'status', (message) => {
     const content = message.content.replace('!status ', '')
-
+    if (message.member.hasPermission('ADMINISTRATOR', 'MANAGE_WEBHOOKS'))
     client.user.setPresence({
       activity: {
         name: content,
@@ -59,13 +46,13 @@ command(client, ['rules'], (message) => {
 
 command(client, 'ctc', (message) => {
   const name = message.content.replace('!ctc ', '')
-
+  if (message.member.hasPermission('ADMINISTRATOR', 'MANAGE_CHANNELS'))
   message.guild.channels
     .create(name, {
       type: 'text',
     })
     .then((channel) => {
-      const categoryId = '719799253706342421'
+      const categoryId = '-1'
       channel.setParent(categoryId)
     })
 })
@@ -142,6 +129,10 @@ command(client, ['help','hl'], (message)=> {
 
 command(client, ['credits', 'cd'], (message) => {
 message.channel.send('creator:praneethprogamer , learner:praneethprogamer , helper: Windows 11 ')
+})
+
+command(client, ['invite'], (message) => {
+  message.channel.send('Invite The Bot HERE: https://discord.com/api/oauth2/authorize?client_id=959463038111588392&permissions=8&scope=bot ')
 })
 
 client.login(process.env.TOKEN); 
