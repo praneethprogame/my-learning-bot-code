@@ -7,7 +7,7 @@ require('dotenv').config()
 
 client.on('ready', () => {
   console.log('Bots Successfuly Online')
-client.user.setActivity('som minecraft');
+  client.user.setActivity("pran code me", { type: "WATCHING"});
   command(client, 'ping', (message) => {
     message.channel.send('Pong!!!!!!')
   })
@@ -124,8 +124,8 @@ command(client, 'kick', (message) => {
 })
 
 command(client, ['help','hl'], (message)=> {
-  message.channel.send('commands: !help brings up this| !hl also brings up this| !ctc {CHANNELNAME} creates a channel| !status {STATUS} changes the bots status| !ping the bot will say "pong!"')
-})
+  message.channel.send('commands: !help brings up this| !hl also brings up this| !ctc {CHANNELNAME} creates a channel| !status {STATUS} changes the bots status| !ping the bot will say "pong! | !invite: give an invite link to the actul bot"')
+})  
 
 command(client, ['credits', 'cd'], (message) => {
 message.channel.send('creator:praneethprogamer , learner:praneethprogamer , helper: Windows 11 ')
