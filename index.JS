@@ -8,8 +8,9 @@ require('dotenv').config()
 client.on('ready', () => {
   console.log('Bots Successfuly Online')
   client.user.setActivity("pran code me", { type: "WATCHING"});
+  
   command(client, 'ping', (message) => {
-    message.channel.send('Pong!!!!!!')
+    message.channel.send(`pong! Client Ping: ${client.ws.ping} ms`)
   })
 
   command(client, 'servers', (message) => {
@@ -41,7 +42,7 @@ client.on('ready', () => {
 })
 
 command(client, ['rules'], (message) => {
-  message.channel.send('1. no spaming 2.no bot abuseing 3.all these rules are FAKE 4. u dont need to follow these')
+  message.channel.send('enter som rules here')
 })
 
 command(client, 'ctc', (message) => {
