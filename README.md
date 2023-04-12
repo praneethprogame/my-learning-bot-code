@@ -17,6 +17,11 @@ If there are any errors with the code
 DM me on discord
 
 praneethprogamer#0476
+# NOTE
+
+this project is outdated i have plans to update this project to discord.js V14
+i will do it in about 2 weeks!
+
 _____________________________________________
 
 this repo is still owned my praneethprogame
