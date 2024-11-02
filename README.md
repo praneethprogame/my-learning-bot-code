@@ -1,12 +1,16 @@
+# ⚠️ this repo is abandoned and unupdated 
+
+i decided to archive/mark this repo as 'abandonded' as i will not be updating this to future discord.js versions past d.js v13.
+
+thank you to everyone who helped me build my first bot! goodbye!
+
 # My learning bot Code
 
 I have been learning is from the last 
 2 weeks and it’s going well!!
 
 If there are any errors with the code
-DM me on discord
-
-praneethprogamer#0476
+~~contact me on discord: `not.pran`~~
 # NOTE
 
 this project is outdated i have plans to update this project to discord.js V14
@@ -17,10 +21,10 @@ and write in
 
 `TOKEN= your discord bot token!`
 
-and to run the bot from vs code(visual studio code) just do the command
+and to run the bot, just do the command
 
 node index.js 
 
 _____________________________________________
 
-this repo is still owned my praneethprogame
+this repo is still owned by praneethprogame
